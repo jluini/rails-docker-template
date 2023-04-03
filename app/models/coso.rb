@@ -1,0 +1,2 @@
+class Coso < ApplicationRecord
+end

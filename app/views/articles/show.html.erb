@@ -1,0 +1,13 @@
+
+<h1>Key '<%= @article.key %>'</h1>
+
+<h2>Content:</h2>
+<%= @article.content %>
+
+<ul>
+  <li><%= link_to "Edit", edit_article_path %></li>
+  <li><%= link_to "Destroy", article_path, data: {
+                    method: :delete,
+                    confirm: "Are you sure?"
+                  } %></li>
+</ul>

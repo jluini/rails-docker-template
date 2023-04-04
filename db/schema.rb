@@ -10,17 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_01_065607) do
+ActiveRecord::Schema.define(version: 2023_04_03_180000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "cosos", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.integer "number"
+  create_table "articles", force: :cascade do |t|
+    t.bigint "parent_id"
+    t.string "key"
+    t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["key", "parent_id"], name: "index_articles_on_key_and_parent_id", unique: true
+    t.index ["key"], name: "index_articles_on_key"
+    t.index ["parent_id"], name: "index_articles_on_parent_id"
   end
 
+  add_foreign_key "articles", "articles", column: "parent_id"
 end

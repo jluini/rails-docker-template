@@ -1,0 +1,44 @@
+<!--
+<ul>
+  <% @parts.each do |part| %>
+    <li>
+      <%= part %>
+    </li>
+  <% end %>
+</ul>
+
+
+<h2><%= @article.key %> (#<%= @article.id %>)</h2>
+
+<%= @article.content %>
+
+<h3>Children</h3>
+<% if @article.children.present? %>
+  <ol>
+    <% @article.children do |child| %>
+      <li>
+        <%= child.key %>
+      </li>
+    <% end %>
+  </ol>
+<% else %>
+  <p>(no children)</p>
+<% end %>
+-->
+
+<h2><%= @article.key %> (#<%= @article.id %>)</h2>
+
+<div class="article">
+  <%= raw @article_html %>
+</div>
+
+<% if @article.children.present? %>
+  <h3>Children</h3>
+  <ol>
+    <% @article.children.each do |child| %>
+      <li>
+        <%= child.key %>
+      </li>
+    <% end %>
+  </ol>
+<% end %>

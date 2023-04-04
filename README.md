@@ -17,3 +17,7 @@ exit
 docker compose up -d
 docker attach rails-docker-template-web-1
 ```
+
+```
+docker compose exec web rails c
+```

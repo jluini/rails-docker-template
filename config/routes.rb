@@ -3,4 +3,8 @@ Rails.application.routes.draw do
   get 'welcome/index'
   
   root 'welcome#sarasa'
+  
+  get 'julopedia/:query', to: 'julopedia#show', constraints: { query: /.+/ }
+  
+  resources :articles
 end
